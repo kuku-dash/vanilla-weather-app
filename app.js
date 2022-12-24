@@ -54,6 +54,7 @@ function search(city) {
 }
 
 function submitQuery(event) {
+  event.preventDefault();
   let cityInput = document.querySelector("#search-box");
   search(cityInput.value);
 }
@@ -64,6 +65,7 @@ form.addEventListener("submit", submitQuery);
 search("Lagos");
 
 function showCelsiusTemp(event) {
+  event.preventDefault();
   let celsiusTemperature = document.querySelector("#temp");
   celsiusTemperature.innerHTML = Math.round(celsiusTemp);
 }
