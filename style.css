@@ -1,0 +1,53 @@
+h1 {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-size: 20px;
+  font-weight: 100;
+  color: #202124;
+  margin-bottom: 0;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-weight: 100;
+  font-size: 16px;
+  line-height: 19px;
+}
+li:first-letter {
+  text-transform: capitalize;
+}
+.img-temp-overview {
+  margin-bottom: 20px;
+}
+.weather-temp img {
+  margin-right: 5px;
+  height: 64px;
+  width: 64px;
+}
+.weather-temp strong {
+  font-weight: 200;
+  font-size: 48px;
+  line-height: 60px;
+}
+.weather-temp small {
+  position: relative;
+  font-size: 12px;
+  top: 10px;
+}
+.app-wrapper {
+  width: 600px;
+  margin: 0 auto;
+}
+.style-me {
+  width: 600px;
+  margin: 0 auto;
+  margin-top: 40px;
+  padding: 20px;
+  border: 1px solid silver;
+  border-radius: 4px;
+}
