@@ -51,3 +51,23 @@ li:first-letter {
   border: 1px solid silver;
   border-radius: 4px;
 }
+.forecast-wrapper {
+  margin-top: 20px;
+  text-align: center;
+}
+.forecast-weekday {
+  color: #202124;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+.forecast-temperature-data {
+  font-size: 14px;
+  margin-top: 5px;
+}
+.max-temperature-data {
+  font-weight: 500;
+}
+.min-temperature-data {
+  opacity: 0.5;
+}
