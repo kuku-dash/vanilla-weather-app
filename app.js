@@ -23,12 +23,14 @@ function newDate(timestamp) {
   return `${day}, ${hour}: ${minutes}`;
 }
 
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
   let forecastData = `<div class="row">`;
-  let days = ["Tue", "Wed", "Thu"];
+  let days = ["Tue", "Wed", "Thu", "Fri", "Sat", "Sun", "Mon"];
   days.forEach(function (day) {
-    forecastData = forecastData +
+    forecastData =
+      forecastData +
       `<div class="col-2">
                <div class="forecast-weekday">${day}</div>
 
@@ -47,6 +49,16 @@ function displayForecast() {
   forecastElement.innerHTML = forecastData;
 }
 
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let longitude = coordinates.lon;
+  let latitude = coordinates.lat;
+  let apiKey = "a5410801f2tbe3f2bfofb9a63a6f2459";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${longitude}&lat=${latitude}&key=${apiKey}`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function displayTemperature(response) {
   let temperature = document.querySelector("#temp");
   let description = document.querySelector("#description");
@@ -57,7 +69,6 @@ function displayTemperature(response) {
   let iconElement = document.querySelector("#icon");
 
   celsiusTemp = response.data.main.temp;
-
   temperature.innerHTML = Math.round(celsiusTemp);
   description.innerHTML = response.data.weather[0].description;
   humidity.innerHTML = response.data.main.humidity;
@@ -68,6 +79,8 @@ function displayTemperature(response) {
     "src",
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+
+  getForecast(response.data.coord);
 }
 
 function search(city) {
@@ -106,5 +119,3 @@ fahLink.addEventListener("click", displayFahrenheit);
 
 let celsiusLink = document.querySelector("#celsius");
 celsiusLink.addEventListener("click", showCelsiusTemp);
-
-displayForecast();
